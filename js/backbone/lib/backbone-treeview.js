@@ -47,7 +47,8 @@ window.Filetree = function(spec, my) {
             'click .backbone-tree-label': 'labelClick',            
             'contextmenu .backbone-tree-label': 'handleRightClick',
         },
-        initialize: function() {
+        initialize: function(args) {
+            this.vent = args.vent;
             var type = this.model.get('type');
             if (type === 'Directory') {
                 //TODO: can add code here for open/close state as parameter
@@ -58,6 +59,7 @@ window.Filetree = function(spec, my) {
                         collection: this.model.get('nodes'),
                         parent: this
                     });
+                    this.vent.on('toggleDefaultPath', this.toggleDefaultPath, this);
                 }                 
             }
             else {
@@ -141,6 +143,21 @@ window.Filetree = function(spec, my) {
             }
 
         },
+        toggleDefaultPath:function(args){
+            var rootView = args.rootView;
+            for (var key in rootView.nodeListView.nodeViews) {
+                var nodeview = rootView.nodeListView.nodeViews[key];
+                var index = args.defaultPath.indexOf(nodeview.model.get('path'));
+                if(index != -1) {
+                    nodeview.$el.children('.backbone-tree-nav-icon').click();
+                    this.vent.trigger("toggleDefaultPath", {rootView: nodeview, defaultPath: args.defaultPath});
+                }                
+            }
+            //tokenize tree path
+            //find child with path and toggle
+            //while we have tokens continue to toggle!
+            
+        },        
         findRootView: function(nodeView){
             var rootView = nodeView;
             while (rootView.parent) {
@@ -200,8 +217,9 @@ window.Filetree = function(spec, my) {
 
     var NodeListView = Backbone.View.extend({
         tagName: 'ul',
-        initialize: function(args) {
+        initialize: function(args) {            
             _.bindAll(this, 'createNodeView', 'renderNode');
+            this.vent = args.vent;
             this.parent = args.parent;
             this.defaultPath = args.defaultPath            
             this.nodeViews = {};
@@ -215,7 +233,7 @@ window.Filetree = function(spec, my) {
             this.$el.append(this.nodeViews[node.cid].render().el);
         },
         createNodeView: function(node) {
-            var nodeView = new NodeView({model: node});
+            var nodeView = new NodeView({model: node, vent: this.vent});
             nodeView.setParent(this.parent);            
             this.nodeViews[node.cid] = nodeView;
 
@@ -228,10 +246,9 @@ window.Filetree = function(spec, my) {
         },
         className: 'backbone-tree',
         initialize: function(args) {
-
+            this.vent = vent;
             var nodeList = null;        
             if(args.url && args.root) {
-                console.log("loading tree from ajax...");
                 this.url = args.url;
                 this.root = args.root;
                 jQuery.ajax({
@@ -248,22 +265,18 @@ window.Filetree = function(spec, my) {
             } else {
                 nodeList = new NodeList(args.nodes);
             }
+            if(args.defaultPath) {
+                this.defaultPath = args.defaultPath;
+            }
             this.nodeListView = new NodeListView({
                 collection: nodeList,
-                parent: this
+                parent: this,
+                vent: vent
             });            
             this.className += 
                 (args.theme) ? ' ' + args.theme : ' backbone-tree-default';
             this.$el.attr('class', this.className);
-            //if modal is set oink oink oink oink!
-            this.selected = new Array();
-            this.selectDefaultNode(args.defaultPath);
-
-        },
-        selectDefaultNode: function(defaultPath) {
-            this.nodeListView.collection.each(function(node) {
-                console.log("node: " + node.get('path'));
-            });
+            this.selected = new Array();                        
         },
         render: function() {
             //if it is modal, we need to append stuff here...
@@ -275,6 +288,9 @@ window.Filetree = function(spec, my) {
             } else {
                 this.$el.append('<button id="printSelected" class="btn btn-primary">Open</button>');
             }   
+            if(this.defaultPath) {
+                this.vent.trigger("toggleDefaultPath", {rootView: this, defaultPath: this.defaultPath});
+            }
             return this;
         },
         handleClickNode: function(nodeView, multiple) {
@@ -315,8 +331,10 @@ window.Filetree = function(spec, my) {
     });
 
     
+    var vent = _.extend({}, Backbone.Events);
 
     var treeView = new TreeView({
+        vent: vent,
         el: spec.el,
         nodes: spec.nodes,
         theme: spec.theme,

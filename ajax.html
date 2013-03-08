@@ -10,15 +10,19 @@
 	<script src="js/backbone/lib/backbone-treeview.js"></script>
 </head>
 <body>
+
+	<fileTree/>
+
 	<script type="text/javascript">
 		var demoTree = new Filetree({
 			url:"http://localhost:8080/prepare/file/index",
 			root:"/ZED/PIVOTS/",
-			defaultPath: '/ZED/PIVOTS/PIVOTS/558961_-TIC-TAC-/EXTRA',
-			el: "body",
+			defaultPath: '/ZED/PIVOTS/PIVOTS/test/',
+			el: "fileTree",
 			modal: false,
 			autoRender: true
 		});
 	</script>
+
 </body>
 </html>
