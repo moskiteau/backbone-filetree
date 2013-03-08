@@ -53,12 +53,14 @@ window.Filetree = function(spec, my) {
             if (type === 'Directory') {
                 //TODO: can add code here for open/close state as parameter
                 this.className = 'backbone-tree-expandable ';
-                this.$el.attr('class', this.className);
+                this.$el.attr('class', this.className);                
                 if(this.model.has('nodes')) {
                     this.nodeListView = new NodeListView({
                         collection: this.model.get('nodes'),
-                        parent: this
+                        parent: this,
+                        vent: args.vent
                     });
+                    this.vent = args.vent;
                     this.vent.on('toggleDefaultPath', this.toggleDefaultPath, this);
                 }                 
             }
@@ -152,11 +154,7 @@ window.Filetree = function(spec, my) {
                     nodeview.$el.children('.backbone-tree-nav-icon').click();
                     this.vent.trigger("toggleDefaultPath", {rootView: nodeview, defaultPath: args.defaultPath});
                 }                
-            }
-            //tokenize tree path
-            //find child with path and toggle
-            //while we have tokens continue to toggle!
-            
+            }            
         },        
         findRootView: function(nodeView){
             var rootView = nodeView;
@@ -177,13 +175,14 @@ window.Filetree = function(spec, my) {
         },
         labelClick: function(event) {
             event.stopPropagation();
-            this.model.set('selected', true, {silent: true});
-            var rootView = this;
-            while (rootView.parent) {
-                rootView = rootView.parent;
+            var rootView = this.findRootView(this);
+            if(rootView.fileOnly == true && this.model.get('type') !== 'File') {
+                return false;
             }
+            this.model.set('selected', true, {silent: true});            
             var ctrlKey = false;
-            if(event.ctrlKey) {
+            console.log("multiSelect: " + rootView.multiSelect);
+            if(event.ctrlKey && rootView.multiSelect) {
                 ctrlKey = true;                
             }            
             rootView.handleClickNode(this, ctrlKey);    
@@ -276,7 +275,10 @@ window.Filetree = function(spec, my) {
             this.className += 
                 (args.theme) ? ' ' + args.theme : ' backbone-tree-default';
             this.$el.attr('class', this.className);
-            this.selected = new Array();                        
+            this.inputName = args.inputName;
+            this.multiSelect = args.multiSelect;
+            this.fileOnly = args.fileOnly;
+            this.selected = [];                        
         },
         render: function() {
             //if it is modal, we need to append stuff here...
@@ -298,7 +300,7 @@ window.Filetree = function(spec, my) {
                 for (var i = 0; i < this.selected.length; i++) {
                     this.selected[i].unsetSelectHighlight();
                 }
-                this.selected = new Array();
+                this.selected = [];
             }            
             var index = this.selected.push(nodeView);
             this.selected[index-1].setSelectHighlight();
@@ -306,7 +308,7 @@ window.Filetree = function(spec, my) {
         handleClickToggle: function(node) {            
             //unselect all children on collide
             if (this.selected.length) {
-                var cleaned = new Array();
+                var cleaned = [];
                 for (var i = 0; i < this.selected.length; i++) {
                     var index = this.selected[i].model.get("path").indexOf(node.model.get("path"));
                     if(index != -1) {
@@ -323,9 +325,9 @@ window.Filetree = function(spec, my) {
             $("[name^='files']").remove();
             for (var i = 0; i < this.selected.length; i++) {
                 console.log("item: " + this.selected[i].model.get('path'));
-                var fileInput = Handlebars.compile('<input type="hidden" name="files[]" value="{{path}}" />');
+                var fileInput = Handlebars.compile('<input type="hidden" name="{{this.inputName}}[]" value="{{path}}" />');
                 var path = {path: this.selected[i].model.get('path')};
-                this.$el.append(fileInput(path));
+                this.$el.append(fileInput({inputName: this.inputName, path: path}));
             }
         },
     });
@@ -336,9 +338,12 @@ window.Filetree = function(spec, my) {
     var treeView = new TreeView({
         vent: vent,
         el: spec.el,
+        inputName: spec.inputName,
         nodes: spec.nodes,
         theme: spec.theme,
         modal: spec.modal,
+        multiSelect: spec.multiSelect,
+        fileOnly: spec.fileOnly,
         url: spec.url,
         root: spec.root,
         defaultPath: spec.defaultPath

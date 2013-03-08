@@ -11,6 +11,9 @@ This is a configurable backbone fileTree widget. It can load a file tree structu
 	el: "fileTree" #the element where to load the file tree
 	modal: <true, false> #add the option to close bootstrap windows on «choose»
 	autoRender: <true, false> #to render or not the file tree automatically
+	inputName: "..." #input name to append. i.e. <input type="hidden" name="<inputName>[]" ... />
+	multiSelect: <true, false> #Whether or not to allow the selection of multiple files (ctrl + click)
+	fileOnly: <true, false> #whether of not to allow the selection of file only
 
 ## EXAMPLE
 
