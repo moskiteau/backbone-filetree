@@ -330,11 +330,11 @@ window.Filetree = function(spec, my) {
         },
         printSelected:function() {
             console.log("Open btn clicked!");
-            $("[name^='files']").remove();
+            $("[name^='"+this.inputName+"']").remove();
             for (var i = 0; i < this.selected.length; i++) {
                 console.log("item: " + this.selected[i].model.get('path'));
-                var fileInput = Handlebars.compile('<input type="hidden" name="{{this.inputName}}[]" value="{{path}}" />');
-                var path = {path: this.selected[i].model.get('path')};
+                var path = this.selected[i].model.get('path');
+                var fileInput = Handlebars.compile('<input type="hidden" name="{{this.inputName}}[]" value="{{path}}" />');                
                 this.$el.append(fileInput({inputName: this.inputName, path: path}));
             }
         },
