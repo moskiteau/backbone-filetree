@@ -93,7 +93,6 @@ window.Filetree = function(spec, my) {
             var ext = "";
             if(this.model.get('type') == 'File') {
                 ext = {ext: " ext_" + this.model.get('extension')};
-                console.log("ext: " + ext);
             }
             this.$el.append(navIconHtml)
                 .append(iconHtml(ext))
@@ -286,6 +285,7 @@ window.Filetree = function(spec, my) {
             this.inputName = args.inputName;
             this.multiSelect = args.multiSelect;
             this.fileOnly = args.fileOnly;
+            this.callback = args.callback;
             this.selected = [];                        
         },
         render: function() {
@@ -331,11 +331,16 @@ window.Filetree = function(spec, my) {
         printSelected:function() {
             console.log("Open btn clicked!");
             $("[name^='"+this.inputName+"']").remove();
+            var paths = [];
             for (var i = 0; i < this.selected.length; i++) {
                 console.log("item: " + this.selected[i].model.get('path'));
                 var path = this.selected[i].model.get('path');
+                paths.push(path);
                 var fileInput = Handlebars.compile('<input type="hidden" name="{{this.inputName}}[]" value="{{path}}" />');                
                 this.$el.append(fileInput({inputName: this.inputName, path: path}));
+            }
+            if(this.callback) {
+                callback(paths);
             }
         },
     });
@@ -349,6 +354,7 @@ window.Filetree = function(spec, my) {
         inputName: spec.inputName,
         nodes: spec.nodes,
         theme: spec.theme,
+        callback: spec.callback,
         modal: spec.modal,
         multiSelect: spec.multiSelect,
         fileOnly: spec.fileOnly,

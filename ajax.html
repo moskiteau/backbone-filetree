@@ -14,11 +14,15 @@
 	<fileTree/>
 
 	<script type="text/javascript">
+		var callback = function(paths) {
+			console.log("calling callback: " + paths.length);
+		};
 		var demoTree = new Filetree({
 			url:"http://localhost:8080/prepare/file/index",
 			root:"/ZED/PIVOTS/",
 			defaultPath: '/ZED/PIVOTS/PIVOTS/test/',
 			el: "fileTree",
+			callback: callback,
 			inputName: "files",
 			fileOnly: false,
 			multiSelect: true,
