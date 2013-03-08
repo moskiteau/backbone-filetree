@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     white-space: nowrap;
-    font-family: "tahoma";
+    font-family: Helvetica, Arial, Tahoma;
 }
 
 .backbone-tree ul, .backbone-tree li {
