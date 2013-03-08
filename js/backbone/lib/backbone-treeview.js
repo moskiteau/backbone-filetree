@@ -13,6 +13,7 @@ window.Filetree = function(spec, my) {
         defaults: {    
             type: "File", 
             path: "/",  
+            extension: "",
             selected: false
         },
         initialize: function(attributes, options) {
@@ -38,7 +39,8 @@ window.Filetree = function(spec, my) {
     var NodeView = Backbone.View.extend({
         tagName: 'li',
         navIconTemplate: '<div class="backbone-tree-nav-icon"></div>',
-        iconTemplate: '<div class="backbone-tree-icon"></div>',
+        iconTemplate: '<div class="backbone-tree-icon{{ext}}"></div>',
+        extensionTemplate: '<div class="{{ext}}"></div>',
         labelTemplate: '<div class="backbone-tree-label">{{name}}</div>',
         events: {
             'click .backbone-tree-nav-icon': 'toggle',
@@ -84,11 +86,17 @@ window.Filetree = function(spec, my) {
         render: function() {
             var navIconHtml = Handlebars.compile(this.navIconTemplate);
             var iconHtml = Handlebars.compile(this.iconTemplate);
+            var extensionHtml = Handlebars.compile(this.extensionTemplate);
             var labelHtml = Handlebars.compile(this.labelTemplate);
             var context = {name: this.model.get('name')};
 
+            var ext = "";
+            if(this.model.get('type') == 'File') {
+                ext = {ext: " ext_" + this.model.get('extension')};
+                console.log("ext: " + ext);
+            }
             this.$el.append(navIconHtml)
-                .append(iconHtml)
+                .append(iconHtml(ext))
                 .append(labelHtml(context));
             if (this.nodeListView) {
                 this.$el.append(this.nodeListView.render().el);

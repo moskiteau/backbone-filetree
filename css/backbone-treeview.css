@@ -125,61 +125,182 @@
     background: none;
 }
 
-.backbone-tree-default .backbone-tree-icon .ext_3gp { background: url(../img/icons/film.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_afp { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_afpa { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_asp { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_aspx { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_avi { background: url(../img/icons/film.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_bat { background: url(../img/icons/application.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_bmp { background: url(../img/icons/picture.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_c { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_cfm { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_cgi { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_com { background: url(../img/icons/application.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_cpp { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_css { background: url(../img/icons/css.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_doc { background: url(../img/icons/doc.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_exe { background: url(../img/icons/application.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_gif { background: url(../img/icons/picture.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_fla { background: url(../img/icons/flash.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_h { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_htm { background: url(../img/icons/html.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_html { background: url(../img/icons/html.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_jar { background: url(../img/icons/java.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_jpg { background: url(../img/icons/picture.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_jpeg { background: url(../img/icons/picture.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_js { background: url(../img/icons/script.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_lasso { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_log { background: url(../img/icons/txt.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_m4p { background: url(../img/icons/music.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_mov { background: url(../img/icons/film.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_mp3 { background: url(../img/icons/music.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_mp4 { background: url(../img/icons/film.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_mpg { background: url(../img/icons/film.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_mpeg { background: url(../img/icons/film.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_ogg { background: url(../img/icons/music.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_pcx { background: url(../img/icons/picture.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_pdf { background: url(../img/icons/pdf.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_php { background: url(../img/icons/php.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_png { background: url(../img/icons/picture.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_ppt { background: url(../img/icons/ppt.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_psd { background: url(../img/icons/psd.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_pl { background: url(../img/icons/script.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_py { background: url(../img/icons/script.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_rb { background: url(../img/icons/ruby.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_rbx { background: url(../img/icons/ruby.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_rhtml { background: url(../img/icons/ruby.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_rpm { background: url(../img/icons/linux.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_ruby { background: url(../img/icons/ruby.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_sql { background: url(../img/icons/db.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_swf { background: url(../img/icons/flash.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_tif { background: url(../img/icons/picture.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_tiff { background: url(../img/icons/picture.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_txt { background: url(../img/icons/txt.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_vb { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_wav { background: url(../img/icons/music.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_wmv { background: url(../img/icons/film.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_xls { background: url(../img/icons/xls.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_xml { background: url(../img/icons/code.png) left top no-repeat; }
-.backbone-tree-default .backbone-tree-icon .ext_zip { background: url(../img/icons/zip.png) left top no-repeat; }
+.ext_xml {     
+    background-image: url(../img/icons/code.png) !important;  
+    background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+
+.ext_3gp { 
+    background-image: url(../img/icons/film.png) !important; 
+    background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_afp { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_afpa { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_asp { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_aspx { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_avi { background-image: url(../img/icons/film.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_bat { background-image: url(../img/icons/application.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_bmp { background-image: url(../img/icons/picture.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_c { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_cfm { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_cgi { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_com { background-image: url(../img/icons/application.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_cpp { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_css { background-image: url(../img/icons/css.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_doc { background-image: url(../img/icons/doc.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_exe { background-image: url(../img/icons/application.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_gif { background-image: url(../img/icons/picture.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_fla { background-image: url(../img/icons/flash.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_h { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_htm { background-image: url(../img/icons/html.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_html { background-image: url(../img/icons/html.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_jar { background-image: url(../img/icons/java.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_jpg { background-image: url(../img/icons/picture.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_jpeg { background-image: url(../img/icons/picture.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_js { background-image: url(../img/icons/script.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_lasso { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_log { background-image: url(../img/icons/txt.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_m4p { background-image: url(../img/icons/music.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_mov { background-image: url(../img/icons/film.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_mp3 { background-image: url(../img/icons/music.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_mp4 { background-image: url(../img/icons/film.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_mpg { background-image: url(../img/icons/film.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_mpeg { background-image: url(../img/icons/film.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_ogg { background-image: url(../img/icons/music.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_pcx { background-image: url(../img/icons/picture.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_pdf { background-image: url(../img/icons/pdf.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_php { background-image: url(../img/icons/php.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_png { background-image: url(../img/icons/picture.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_ppt { background-image: url(../img/icons/ppt.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_psd { background-image: url(../img/icons/psd.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_pl { background-image: url(../img/icons/script.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_py { background-image: url(../img/icons/script.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_rb { background-image: url(../img/icons/ruby.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_rbx { background-image: url(../img/icons/ruby.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_rhtml { background-image: url(../img/icons/ruby.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_rpm { background-image: url(../img/icons/linux.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_ruby { background-image: url(../img/icons/ruby.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_sql { background-image: url(../img/icons/db.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_swf { background-image: url(../img/icons/flash.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_tif { background-image: url(../img/icons/picture.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_tiff { background-image: url(../img/icons/picture.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_txt { background-image: url(../img/icons/txt.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_vb { background-image: url(../img/icons/code.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_wav { background-image: url(../img/icons/music.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_wmv { background-image: url(../img/icons/film.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_xls { background-image: url(../img/icons/xls.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
+.ext_zip { background-image: url(../img/icons/zip.png) !important; background-position: top left !important; 
+    background-repeat: no-repeat !important; 
+}
