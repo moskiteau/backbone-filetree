@@ -286,6 +286,7 @@ window.Filetree = function(spec, my) {
             this.multiSelect = args.multiSelect;
             this.fileOnly = args.fileOnly;
             this.callback = args.callback;
+            this.modal = args.modal;
             this.selected = [];                        
         },
         render: function() {
