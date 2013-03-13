@@ -247,6 +247,17 @@ window.Filetree = function(spec, my) {
     });
 
     var TreeView = Backbone.View.extend({
+        modalTemplate: '<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> \
+            <div class="modal-header"> \
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> \
+                <h3 id="myModalLabel">Choose files</h3> \
+            </div> \
+            <div class="modal-body"></div> \
+              <div class="modal-footer"> \
+                <button id="printSelected" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button> \
+                <button id="printSelected" data-dismiss="modal" class="btn btn-primary">Open</button> \
+              </div> \
+        </div>',
         events: {
             'click #printSelected': 'printSelected'
         },
@@ -289,14 +300,15 @@ window.Filetree = function(spec, my) {
             this.modal = args.modal;
             this.selected = [];                        
         },
-        render: function() {
-            //if it is modal, we need to append stuff here...
 
-            this.$el.append(this.nodeListView.render().el);
+        render: function() {
+            //if it is modal, we need to append stuff here...            
             if(this.modal) {
-                this.$el.append('<button id="printSelected" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>');    
-                this.$el.append('<button id="printSelected" data-dismiss="modal" class="btn btn-primary">Open</button>');
+                var modalHtml = Handlebars.compile(this.modalTemplate);
+                this.$el.append(modalHtml);
+                $(".modal-body").append(this.nodeListView.render().el);
             } else {
+                this.$el.append(this.nodeListView.render().el);
                 this.$el.append('<button id="printSelected" class="btn btn-primary">Open</button>');
             }   
             if(this.defaultPath) {

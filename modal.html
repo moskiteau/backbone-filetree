@@ -13,15 +13,8 @@
 </head>
 <body>
 	<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	    <h3 id="myModalLabel">File selector</h3>
-	  </div>
-	  <div class="modal-body">
-	  	<fileTree />
-	  </div>
-	</div>
+	
+	<fileTree />
 	<script type="text/javascript">
 		var demoTree = new Filetree({
 			url:"http://localhost:8080/prepare/file/index",
