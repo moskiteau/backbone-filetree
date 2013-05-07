@@ -159,11 +159,28 @@ window.Filetree = function(spec, my) {
                 var index = args.defaultPath.indexOf(nodeview.model.get('path'));
                 if(index != -1) {
                     nodeview.$el.children('.backbone-tree-nav-icon').click();
-                    this.vent.trigger("toggleDefaultPath", {rootView: nodeview, defaultPath: args.defaultPath});
-                }                
+                    this.vent.trigger("toggleDefaultPath", {rootView: nodeview, modal: args.modal, defaultPath: args.defaultPath});
+                }
+                if(args.defaultPath == nodeview.model.get('path')) {
+                    var position = nodeview.$el.children('.backbone-tree-nav-icon').position();
+                    nodeview.$el.children('.backbone-tree-nav-icon').attr('id', 'lastOpenDir');
+                    if(args.modal) {
+                        $('#myModal').on('shown', function () {                            
+                            var lastOpenDir = $(this).find('#lastOpenDir');
+                            var position = lastOpenDir.position();
+                            $('#modalBody').animate({
+                                scrollTop: position.top
+                            }, 'slow');
+                        });
+                    } else {
+                        $('html, body').animate({
+                            scrollTop: position.top + 'px'
+                        }, 'fast');
+                    }                    
+                }
             }            
         },        
-        findRootView: function(nodeView){
+        findRootView: function(nodeView) {
             var rootView = nodeView;
             while (rootView.parent) {
                 rootView = rootView.parent;
@@ -252,7 +269,7 @@ window.Filetree = function(spec, my) {
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> \
                 <h3 id="myModalLabel">Choose files</h3> \
             </div> \
-            <div class="modal-body"></div> \
+            <div class="modal-body" id="modalBody"></div> \
               <div class="modal-footer"> \
                 <button id="printSelected" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button> \
                 <button id="printSelected" data-dismiss="modal" class="btn btn-primary">Open</button> \
@@ -312,7 +329,7 @@ window.Filetree = function(spec, my) {
                 this.$el.append('<button id="printSelected" class="btn btn-primary">Open</button>');
             }   
             if(this.defaultPath) {
-                this.vent.trigger("toggleDefaultPath", {rootView: this, defaultPath: this.defaultPath});
+                this.vent.trigger("toggleDefaultPath", {rootView: this, modal: this.modal, defaultPath: this.defaultPath});
             }
             return this;
         },
